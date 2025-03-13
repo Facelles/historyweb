@@ -2,7 +2,7 @@
   <div class="min-h-screen py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl md:text-5xl font-serif text-center text-gold-500 mb-16">
-        Renaissance Timeline
+        Хронологія подій
       </h1>
 
       <div class="relative">
@@ -14,8 +14,7 @@
           <div 
             v-for="(event, index) in timelineEvents" 
             :key="event.year"
-            class="relative"
-            :class="{'opacity-0': !event.visible}"
+            class="relative timeline-item"
             ref="timelineItems"
           >
             <!-- Timeline Dot -->
@@ -50,44 +49,37 @@ const timelineEvents = ref([
   {
     year: '1300',
     title: 'Early Renaissance Begins',
-    description: 'The Renaissance period begins in Italy, marking a transition from the Middle Ages to the modern era.',
-    visible: false
+    description: 'The Renaissance period begins in Italy, marking a transition from the Middle Ages to the modern era.'
   },
   {
     year: '1401',
     title: 'Florence Baptistery Doors Competition',
-    description: 'Lorenzo Ghiberti wins the competition to create the bronze doors of the Florence Baptistery.',
-    visible: false
+    description: 'Lorenzo Ghiberti wins the competition to create the bronze doors of the Florence Baptistery.'
   },
   {
     year: '1453',
     title: 'Fall of Constantinople',
-    description: 'The fall of Constantinople leads to an influx of Greek scholars and texts into Italy.',
-    visible: false
+    description: 'The fall of Constantinople leads to an influx of Greek scholars and texts into Italy.'
   },
   {
     year: '1492',
     title: 'Age of Discovery',
-    description: 'Christopher Columbus reaches the Americas, marking the beginning of the Age of Discovery.',
-    visible: false
+    description: 'Christopher Columbus reaches the Americas, marking the beginning of the Age of Discovery.'
   },
   {
     year: '1503',
     title: 'Mona Lisa',
-    description: 'Leonardo da Vinci begins painting the Mona Lisa, one of the most famous paintings in history.',
-    visible: false
+    description: 'Leonardo da Vinci begins painting the Mona Lisa, one of the most famous paintings in history.'
   },
   {
     year: '1512',
     title: 'Sistine Chapel Ceiling',
-    description: 'Michelangelo completes the painting of the Sistine Chapel ceiling.',
-    visible: false
+    description: 'Michelangelo completes the painting of the Sistine Chapel ceiling.'
   },
   {
     year: '1543',
     title: 'Scientific Revolution',
-    description: 'Copernicus publishes his heliocentric theory, marking the beginning of the Scientific Revolution.',
-    visible: false
+    description: 'Copernicus publishes his heliocentric theory, marking the beginning of the Scientific Revolution.'
   }
 ])
 
@@ -98,10 +90,10 @@ onMounted(() => {
     gsap.from(item, {
       scrollTrigger: {
         trigger: item,
-        start: 'top center+=100',
+        start: 'top bottom-=100',
         toggleActions: 'play none none reverse'
       },
-      opacity: 1,
+      opacity: 0,
       x: index % 2 === 0 ? -50 : 50,
       duration: 1,
       ease: 'power2.out'
@@ -113,12 +105,38 @@ onMounted(() => {
 <style scoped>
 .timeline-item {
   opacity: 0;
-  transform: translateX(50px);
-  transition: all 0.5s ease-out;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: calc(var(--index, 0) * 0.2s);
 }
 
-.timeline-item.visible {
-  opacity: 1;
-  transform: translateX(0);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Додаємо анімацію для лінії часу */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--gold-500) 10%, var(--gold-500) 90%, transparent);
+  animation: growLine 1.5s ease-out forwards;
+  transform-origin: top;
+}
+
+@keyframes growLine {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
 }
 </style> 

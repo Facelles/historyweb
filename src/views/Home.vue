@@ -4,8 +4,8 @@
     <div class="relative h-screen flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0 z-0">
         <img 
-          src="../assets/renaissance-bg.jpg" 
-          alt="Renaissance Background" 
+          src="../assets/hero-bg.jpg" 
+          alt="Історичне фото періоду" 
           class="w-full h-full object-cover opacity-30"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
@@ -13,40 +13,68 @@
       
       <div class="relative z-10 text-center px-4">
         <h1 class="text-5xl md:text-7xl font-serif mb-6 text-gold-500 animate-fade-in">
-          The Renaissance
+          Назва історичного періоду
         </h1>
         <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
-          A period of cultural rebirth that transformed Europe and shaped the modern world
+          Короткий опис періоду та його значення в історії
         </p>
         <router-link 
           to="/timeline" 
           class="inline-block px-8 py-4 bg-gold-500 text-black font-medium rounded-lg hover:bg-gold-400 transition-colors animate-fade-in-up"
         >
-          Explore the Timeline
+          Дослідити період
         </router-link>
       </div>
     </div>
 
-    <!-- Featured Sections -->
+    <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Introduction Section -->
+      <div class="mb-20">
+        <h2 class="text-3xl md:text-4xl font-serif text-gold-500 mb-8 text-center">
+          Огляд періоду
+        </h2>
+        <div class="prose prose-lg prose-invert mx-auto">
+          <p class="text-gray-300 mb-6">
+            Детальний опис історичного періоду буде тут...
+          </p>
+        </div>
+      </div>
+
+      <!-- Key Points -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         <div 
-          v-for="section in featuredSections" 
-          :key="section.title"
+          v-for="point in keyPoints" 
+          :key="point.title"
           class="group relative overflow-hidden rounded-lg bg-gray-800/50 p-6 hover:bg-gray-800/70 transition-all duration-300"
         >
           <div class="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <h3 class="text-xl font-serif text-gold-500 mb-4">{{ section.title }}</h3>
-          <p class="text-gray-300 mb-4">{{ section.description }}</p>
+          <h3 class="text-xl font-serif text-gold-500 mb-4">{{ point.title }}</h3>
+          <p class="text-gray-300 mb-4">{{ point.description }}</p>
           <router-link 
-            :to="section.link" 
+            :to="point.link" 
             class="inline-flex items-center text-gold-500 hover:text-gold-400 transition-colors"
           >
-            Learn more
+            Дізнатися більше
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </router-link>
+        </div>
+      </div>
+
+      <!-- Quick Facts -->
+      <div class="bg-gray-800/30 rounded-lg p-8">
+        <h2 class="text-2xl font-serif text-gold-500 mb-6 text-center">Цікаві факти</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div 
+            v-for="fact in quickFacts" 
+            :key="fact.title"
+            class="text-center"
+          >
+            <div class="text-3xl text-gold-500 font-bold mb-2">{{ fact.value }}</div>
+            <div class="text-gray-300">{{ fact.title }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,29 +82,47 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 
-const featuredSections = [
+const keyPoints = ref([
   {
-    title: 'Timeline',
-    description: 'Journey through the key events and milestones of the Renaissance period.',
+    title: 'Хронологія',
+    description: 'Ключові події та дати періоду.',
     link: '/timeline'
   },
   {
-    title: 'Artists',
-    description: 'Discover the master artists who defined the Renaissance era.',
-    link: '/artists'
+    title: 'Ключові постаті',
+    description: 'Видатні особистості та їх вплив на історію.',
+    link: '/figures'
   },
   {
-    title: 'Gallery',
-    description: 'Explore a curated collection of Renaissance masterpieces.',
+    title: 'Галерея',
+    description: 'Фотографії та артефакти періоду.',
     link: '/gallery'
   }
-]
+])
+
+const quickFacts = ref([
+  {
+    title: 'Тривалість періоду',
+    value: '00 років'
+  },
+  {
+    title: 'Ключових подій',
+    value: '00+'
+  },
+  {
+    title: 'Видатних постатей',
+    value: '00+'
+  },
+  {
+    title: 'Артефактів',
+    value: '00+'
+  }
+])
 
 onMounted(() => {
-  // Animate elements on scroll
   gsap.from('.animate-fade-in', {
     opacity: 0,
     duration: 1,
@@ -123,5 +169,11 @@ onMounted(() => {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.prose {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style> 

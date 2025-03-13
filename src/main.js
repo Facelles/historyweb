@@ -17,9 +17,9 @@ const router = createRouter({
       component: () => import('./views/Timeline.vue')
     },
     {
-      path: '/artists',
-      name: 'artists',
-      component: () => import('./views/Artists.vue')
+      path: '/figures',
+      name: 'figures',
+      component: () => import('./views/Figures.vue')
     },
     {
       path: '/gallery',

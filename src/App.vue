@@ -3,10 +3,10 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 
 const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Timeline', href: '/timeline' },
-  { name: 'Artists', href: '/artists' },
-  { name: 'Gallery', href: '/gallery' }
+  { name: 'Головна', href: '/' },
+  { name: 'Хронологія', href: '/timeline' },
+  { name: 'Ключові постаті', href: '/figures' },
+  { name: 'Галерея', href: '/gallery' }
 ]
 </script>
 
@@ -17,7 +17,7 @@ const navigation = [
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center">
             <router-link to="/" class="text-2xl font-serif text-gold-500 hover:text-gold-400 transition-colors">
-              Renaissance
+              Історія
             </router-link>
           </div>
           <div class="hidden md:block">
@@ -48,7 +48,7 @@ const navigation = [
     <footer class="bg-black/50 mt-20 py-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center text-gray-400">
-          <p>© 2024 Renaissance History. All rights reserved.</p>
+          <p>© 2024 Історія. Всі права захищені.</p>
         </div>
       </div>
     </footer>
