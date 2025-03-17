@@ -54,6 +54,7 @@
           <router-link 
             :to="point.link" 
             class="inline-flex items-center text-gold-500 hover:text-gold-400 transition-colors"
+            @click.native="navigateTo(point.link)"
           >
             Дізнатися більше
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +84,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import gsap from 'gsap'
+
+const router = useRouter()
 
 const keyPoints = ref([
   {
@@ -121,6 +125,10 @@ const quickFacts = ref([
     value: '00+'
   }
 ])
+
+const navigateTo = (path) => {
+  router.push(path)
+}
 
 onMounted(() => {
   gsap.from('.animate-fade-in', {
