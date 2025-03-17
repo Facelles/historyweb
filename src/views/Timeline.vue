@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen py-20">
+  <div class="min-h-screen py-12 sm:py-16 lg:py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-4xl md:text-5xl font-serif text-center text-gold-500 mb-16">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-center text-gold-500 mb-12 sm:mb-16">
         Хронологія подій
       </h1>
 
       <div class="relative">
         <!-- Timeline Line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gold-500/30"></div>
+        <div class="absolute left-8 sm:left-1/2 transform sm:-translate-x-1/2 h-full w-0.5 bg-gold-500/30"></div>
 
         <!-- Timeline Events -->
-        <div class="space-y-16">
+        <div class="space-y-8 sm:space-y-16">
           <div 
             v-for="(event, index) in timelineEvents" 
             :key="event.year"
@@ -18,17 +18,19 @@
             ref="timelineItems"
           >
             <!-- Timeline Dot -->
-            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gold-500 rounded-full"></div>
+            <div 
+              class="absolute left-8 sm:left-1/2 transform sm:-translate-x-1/2 -translate-y-1/2 w-3 sm:w-4 h-3 sm:h-4 bg-gold-500 rounded-full"
+            ></div>
 
             <!-- Content -->
             <div 
-              class="w-5/12 ml-auto pl-8"
-              :class="{'ml-0 mr-auto pr-8': index % 2 === 0}"
+              class="ml-16 sm:ml-0 sm:w-5/12 sm:pl-8"
+              :class="{'sm:ml-auto': index % 2 !== 0, 'sm:mr-auto sm:pl-0 sm:pr-8': index % 2 === 0}"
             >
-              <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg hover:bg-gray-800/70 transition-all duration-300">
-                <div class="text-2xl font-serif text-gold-500 mb-2">{{ event.year }}</div>
-                <h3 class="text-xl font-medium mb-3">{{ event.title }}</h3>
-                <p class="text-gray-300">{{ event.description }}</p>
+              <div class="bg-gray-800/50 p-4 sm:p-6 rounded-lg shadow-lg hover:bg-gray-800/70 transition-all duration-300">
+                <div class="text-xl sm:text-2xl font-serif text-gold-500 mb-2">{{ event.year }}</div>
+                <h3 class="text-lg sm:text-xl font-medium mb-2 sm:mb-3">{{ event.title }}</h3>
+                <p class="text-sm sm:text-base text-gray-300">{{ event.description }}</p>
               </div>
             </div>
           </div>
@@ -94,7 +96,7 @@ onMounted(() => {
         toggleActions: 'play none none reverse'
       },
       opacity: 0,
-      x: index % 2 === 0 ? -50 : 50,
+      x: window.innerWidth >= 640 ? (index % 2 === 0 ? -50 : 50) : 50,
       duration: 1,
       ease: 'power2.out'
     })
@@ -137,6 +139,14 @@ onMounted(() => {
   }
   to {
     transform: scaleY(1);
+  }
+}
+
+/* Адаптивні стилі */
+@media (max-width: 640px) {
+  .timeline-line {
+    left: 8px;
+    transform: none;
   }
 }
 </style> 

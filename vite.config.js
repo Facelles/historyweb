@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/web/', // Замініть 'web' на назву вашого репозиторію
+  base: '/web/',
   plugins: [
     vue(),
     vueDevTools(),
