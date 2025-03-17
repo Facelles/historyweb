@@ -3,11 +3,7 @@
     <!-- Hero Section -->
     <div class="relative min-h-[100svh] flex items-center justify-center overflow-hidden py-20 px-4">
       <div class="absolute inset-0 z-0">
-        <img 
-          src="../assets/hero-bg.jpg" 
-          alt="Історичне фото періоду" 
-          class="w-full h-full object-cover opacity-30"
-        />
+        <div class="w-full h-full bg-gradient-to-b from-gray-900 to-gray-800"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
       </div>
       
