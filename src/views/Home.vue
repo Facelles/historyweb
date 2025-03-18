@@ -42,20 +42,22 @@
         <div 
           v-for="point in keyPoints" 
           :key="point.title"
-          class="group relative overflow-hidden rounded-lg bg-gray-800/50 p-4 sm:p-6 hover:bg-gray-800/70 transition-all duration-300"
+          class="group relative overflow-hidden rounded-lg bg-gray-800/50 p-6 sm:p-8 hover:bg-gray-800/70 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
         >
           <div class="absolute inset-0 bg-gradient-to-br from-gold-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <h3 class="text-lg sm:text-xl font-serif text-gold-500 mb-3 sm:mb-4">{{ point.title }}</h3>
-          <p class="text-gray-300 text-sm sm:text-base mb-4">{{ point.description }}</p>
-          <router-link 
-            :to="point.link" 
-            class="inline-flex items-center text-gold-500 hover:text-gold-400 transition-colors text-sm sm:text-base"
-          >
-            Дізнатися більше
-            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </router-link>
+          <div class="relative z-10">
+            <h3 class="text-lg sm:text-xl font-serif text-gold-500 mb-3 sm:mb-4">{{ point.title }}</h3>
+            <p class="text-gray-300 text-sm sm:text-base mb-4">{{ point.description }}</p>
+            <router-link 
+              :to="point.link" 
+              class="inline-flex items-center justify-center w-full px-4 py-2 text-sm sm:text-base font-medium text-black bg-gold-500 rounded-lg hover:bg-gold-400 transition-all duration-300 group cursor-pointer"
+            >
+              Дізнатися більше
+              <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </router-link>
+          </div>
         </div>
       </div>
 
