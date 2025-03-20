@@ -51,6 +51,7 @@
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { images } from '../assets/images'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -65,7 +66,7 @@ const historicalFigures = ref([
       'Створення системи ГУЛАГ',
       'Проведення масових депортацій'
     ],
-    image: '/images/artists/stalin.jpg'
+    image: images.stalin
   },
   {
     name: 'Микита Хрущов',
@@ -77,7 +78,7 @@ const historicalFigures = ref([
       'Розкриття культу особи Сталіна',
       'Реформування системи репресій'
     ],
-    image: '/images/artists/Хрущов.avif'
+    image: images.khrushchev
   },
   {
     name: 'НКВД',
@@ -89,7 +90,7 @@ const historicalFigures = ref([
       'Виконання розстрілів',
       'Контроль над системою ГУЛАГ'
     ],
-    image: '/images/artists/НКВД.jpeg'
+    image: images.nkvd
   },
   {
     name: 'Павло Постишев',
@@ -101,7 +102,7 @@ const historicalFigures = ref([
       'Боротьба з "націоналістичними елементами"',
       'Участь в організації Голодомору'
     ],
-    image: '/images/artists/Постишев.jpg'
+    image: images.postyshev
   }
 ])
 

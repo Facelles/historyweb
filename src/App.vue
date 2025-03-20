@@ -8,7 +8,7 @@ const mobileMenuOpen = ref(false)
 const navigation = [
   { name: 'Головна', href: '/' },
   { name: 'Хронологія', href: '/timeline' },
-  { name: 'Ключові постаті', href: '/figures' },
+  { name: 'Ключові постаті', href: '/artists' },
   { name: 'Реферат', href: '/referat' }
 ]
 </script>

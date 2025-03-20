@@ -2,37 +2,37 @@
   <div class="min-h-screen py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl md:text-5xl font-serif text-center text-gold-500 mb-16">
-        Renaissance Masters
+        Ключові постаті
       </h1>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div 
-          v-for="artist in artists" 
-          :key="artist.name"
+          v-for="figure in historicalFigures" 
+          :key="figure.name"
           class="group relative overflow-hidden rounded-lg bg-gray-800/50 hover:bg-gray-800/70 transition-all duration-300"
-          ref="artistCards"
+          ref="figureCards"
         >
-          <!-- Artist Image -->
+          <!-- Figure Image -->
           <div class="relative h-64 overflow-hidden">
             <img 
-              :src="artist.image" 
-              :alt="artist.name"
+              :src="figure.image" 
+              :alt="figure.name"
               class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
 
-          <!-- Artist Info -->
+          <!-- Figure Info -->
           <div class="p-6">
-            <h3 class="text-2xl font-serif text-gold-500 mb-2">{{ artist.name }}</h3>
-            <p class="text-gray-400 mb-4">{{ artist.years }}</p>
-            <p class="text-gray-300 mb-4">{{ artist.description }}</p>
+            <h3 class="text-2xl font-serif text-gold-500 mb-2">{{ figure.name }}</h3>
+            <p class="text-gray-400 mb-4">{{ figure.years }}</p>
+            <p class="text-gray-300 mb-4">{{ figure.description }}</p>
             
-            <!-- Famous Works -->
+            <!-- Achievements -->
             <div class="space-y-2">
-              <h4 class="text-sm font-medium text-gold-500">Famous Works:</h4>
+              <h4 class="text-sm font-medium text-gold-500">Досягнення:</h4>
               <ul class="text-sm text-gray-400 space-y-1">
-                <li v-for="work in artist.famousWorks" :key="work">{{ work }}</li>
+                <li v-for="achievement in figure.achievements" :key="achievement">{{ achievement }}</li>
               </ul>
             </div>
           </div>
@@ -49,58 +49,65 @@
 import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { images } from '../assets/images'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const artists = ref([
+const historicalFigures = ref([
   {
-    name: 'Leonardo da Vinci',
-    years: '1452-1519',
-    description: 'A true Renaissance man, Leonardo was a painter, sculptor, architect, scientist, mathematician, engineer, inventor, anatomist, botanist, musician, and writer.',
-    famousWorks: ['Mona Lisa', 'The Last Supper', 'Vitruvian Man'],
-    image: '/images/artists/leonardo.jpg'
+    name: 'Йосип Сталін',
+    years: '1878-1953',
+    description: 'Генеральний секретар ЦК ВКП(б), організатор масових репресій в Україні та всьому СРСР.',
+    achievements: [
+      'Організація Голодомору 1932-1933',
+      'Великий терор 1937-1938',
+      'Створення системи ГУЛАГ',
+      'Масові депортації народів'
+    ],
+    image: images.stalin
   },
   {
-    name: 'Michelangelo',
-    years: '1475-1564',
-    description: 'Michelangelo was a sculptor, painter, architect, and poet who exerted an unparalleled influence on the development of Western art.',
-    famousWorks: ['David', 'Sistine Chapel Ceiling', 'Pietà'],
-    image: '/images/artists/michelangelo.jpg'
+    name: 'Микита Хрущов',
+    years: '1894-1971',
+    description: 'Перший секретар ЦК КПРС, продовжував репресії в Україні, але пізніше ініціював розкриття їх масштабів.',
+    achievements: [
+      'Продовження репресій в Україні',
+      'Розкриття культу особи Сталіна',
+      'Реформи 1960-х років',
+      'Відновлення прав репресованих'
+    ],
+    image: images.khrushchev
   },
   {
-    name: 'Raphael',
-    years: '1483-1520',
-    description: 'Known for his clarity of form and ease of composition, Raphael was one of the most influential artists of the High Renaissance.',
-    famousWorks: ['The School of Athens', 'Sistine Madonna', 'The Transfiguration'],
-    image: '/images/artists/raphael.jpg'
+    name: 'НКВД',
+    years: '1934-1946',
+    description: 'Головний інструмент репресій - радянська таємна поліція, що організовувала арешти, судові процеси та розстріли.',
+    achievements: [
+      'Організація масових арештів',
+      'Проведення показових судових процесів',
+      'Виконання смертних вироків',
+      'Управління системою ГУЛАГ'
+    ],
+    image: images.nkvd
   },
   {
-    name: 'Botticelli',
-    years: '1445-1510',
-    description: 'A master of the Early Renaissance, Botticelli is known for his mythological and religious paintings.',
-    famousWorks: ['The Birth of Venus', 'Primavera', 'The Adoration of the Magi'],
-    image: '/images/artists/botticelli.jpg'
-  },
-  {
-    name: 'Titian',
-    years: '1488-1576',
-    description: 'The most important member of the 16th-century Venetian school, Titian was known for his use of color and his ability to capture human emotion.',
-    famousWorks: ['Venus of Urbino', 'Assumption of the Virgin', 'Bacchus and Ariadne'],
-    image: '/images/artists/titian.jpg'
-  },
-  {
-    name: 'Donatello',
-    years: '1386-1466',
-    description: 'A master of sculpture in both marble and bronze, Donatello was one of the greatest sculptors of the Early Renaissance.',
-    famousWorks: ['David', 'Gattamelata', 'Saint George'],
-    image: '/images/artists/donatello.jpg'
+    name: 'Павло Постишев',
+    years: '1887-1939',
+    description: 'Другий секретар ЦК КП(б)У, активний учасник організації Голодомору та репресій в Україні.',
+    achievements: [
+      'Організація Голодомору в Україні',
+      'Репресії проти української інтелігенції',
+      'Боротьба з "націоналізмом"',
+      'Примусова колективізація'
+    ],
+    image: images.postyshev
   }
 ])
 
-const artistCards = ref([])
+const figureCards = ref([])
 
 onMounted(() => {
-  artistCards.value.forEach((card, index) => {
+  figureCards.value.forEach((card, index) => {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
@@ -118,13 +125,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.artist-card {
+.figure-card {
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.5s ease-out;
 }
 
-.artist-card.visible {
+.figure-card.visible {
   opacity: 1;
   transform: translateY(0);
 }

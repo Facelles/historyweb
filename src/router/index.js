@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Timeline from '../views/Timeline.vue'
-import Figures from '../views/Figures.vue'
+import Artists from '../views/Artists.vue'
 import Referat from '../views/Referat.vue'
 
 const router = createRouter({
-  history: createWebHistory('/historyweb/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -18,16 +18,20 @@ const router = createRouter({
       component: Timeline
     },
     {
-      path: '/figures',
-      name: 'figures',
-      component: Figures
+      path: '/artists',
+      name: 'artists',
+      component: Artists
     },
     {
       path: '/referat',
       name: 'referat',
       component: Referat
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     }
   ]
 })
 
-export default router 
+export default router
