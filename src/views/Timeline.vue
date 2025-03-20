@@ -49,39 +49,49 @@ gsap.registerPlugin(ScrollTrigger)
 
 const timelineEvents = ref([
   {
-    year: '1300',
-    title: 'Early Renaissance Begins',
-    description: 'The Renaissance period begins in Italy, marking a transition from the Middle Ages to the modern era.'
+    year: '1878',
+    title: 'Народження Йосипа Сталіна',
+    description: 'Народження майбутнього генерального секретаря ЦК ВКП(б), який стане організатором масових репресій в СРСР.'
   },
   {
-    year: '1401',
-    title: 'Florence Baptistery Doors Competition',
-    description: 'Lorenzo Ghiberti wins the competition to create the bronze doors of the Florence Baptistery.'
+    year: '1887',
+    title: 'Народження Павла Постишева',
+    description: 'Народження одного з організаторів Голодомору в Україні, який активно проводив політику колективізації та репресій.'
   },
   {
-    year: '1453',
-    title: 'Fall of Constantinople',
-    description: 'The fall of Constantinople leads to an influx of Greek scholars and texts into Italy.'
+    year: '1894',
+    title: 'Народження Микити Хрущова',
+    description: 'Народження майбутнього першого секретаря ЦК КПРС, який пізніше ініціює "відлигу" після смерті Сталіна.'
   },
   {
-    year: '1492',
-    title: 'Age of Discovery',
-    description: 'Christopher Columbus reaches the Americas, marking the beginning of the Age of Discovery.'
+    year: '1934',
+    title: 'Створення НКВД',
+    description: 'Утворення Народного комісаріату внутрішніх справ (НКВД) - головного інструменту репресій в СРСР.'
   },
   {
-    year: '1503',
-    title: 'Mona Lisa',
-    description: 'Leonardo da Vinci begins painting the Mona Lisa, one of the most famous paintings in history.'
+    year: '1932-1933',
+    title: 'Голодомор в Україні',
+    description: 'Штучно створений голод, який призвів до смерті мільйонів українців. Організований за участю Сталіна та Постишева.'
   },
   {
-    year: '1512',
-    title: 'Sistine Chapel Ceiling',
-    description: 'Michelangelo completes the painting of the Sistine Chapel ceiling.'
+    year: '1937-1938',
+    title: 'Велика чистка',
+    description: 'Масова кампанія політичних репресій, організована Сталіним. Загинули сотні тисяч людей.'
   },
   {
-    year: '1543',
-    title: 'Scientific Revolution',
-    description: 'Copernicus publishes his heliocentric theory, marking the beginning of the Scientific Revolution.'
+    year: '1939',
+    title: 'Розстріл Павла Постишева',
+    description: 'Розстріл одного з організаторів репресій, який сам став жертвою сталінського терору.'
+  },
+  {
+    year: '1953',
+    title: 'Смерть Сталіна',
+    description: 'Смерть Йосипа Сталіна, яка призвела до поступового відходу від політики масових репресій.'
+  },
+  {
+    year: '1956',
+    title: 'Хрущовська "відлига"',
+    description: 'Розкриття культу особи Сталіна на XX з\'їзді КПРС, ініційоване Хрущовим. Початок періоду відносного послаблення репресій.'
   }
 ])
 

@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Головна', href: '/' },
   { name: 'Хронологія', href: '/timeline' },
   { name: 'Ключові постаті', href: '/figures' },
-  { name: 'Галерея', href: '/gallery' }
+  { name: 'Реферат', href: '/referat' }
 ]
 </script>
 
